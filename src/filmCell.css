@@ -1,0 +1,22 @@
+.filmCell{
+    width: 1000px;
+}
+
+.filmCellImg{
+    width: 20%;
+    float:left;
+}
+
+.filmCell img{
+    width: 150px;
+    border-radius: 10%;
+}
+
+.filmCellInfo{
+    width: 80%;
+    float:left;
+}
+
+.filmCellInfo p,.filmCellInfo h2,.filmCellInfo h3{
+    
+}
