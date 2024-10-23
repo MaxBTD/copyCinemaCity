@@ -1,5 +1,6 @@
 import './filmList.css';
 import FilmCell from "./filmCell.jsx";
+import FilmListHeader from "./filmHeader.jsx";
 import kulej from "./img/kulej.jpg";
 import usmiech2 from "./img/usmiech2.webp";
 import wooklyn from "./img/wooklyn.jpg";
@@ -14,10 +15,12 @@ const films = [{title: "UŚMIECHNIJ SIĘ 2",img: usmiech2,genre: "Horror",length
 function FilmList(){
     return(
         <div>
-            <FilmCell filmInfo={films[0]}/>
-            {/*films.map( (f) => {
-                return(<FilmCell key={f.title} filmInfo={f}/>);
-            })*/}
+            <FilmListHeader />
+            <div style={{width:"100%"}}>
+                {films.map( (f) => {
+                    return(<FilmCell key={f.title} filmInfo={f}/>);
+                })}
+            </div>
         </div>
     );
 }
