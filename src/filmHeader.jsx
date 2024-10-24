@@ -1,6 +1,11 @@
 import "./filmHeader.css";
+import calIcon from "./img/calender.png";
+
 
 function FilmListHeader(){
+    function onDayClicked(d){
+        /*document.getElementById(d).className = "selected";*/
+    }
     var today = new Date();
     var dayOfWeek;
     var daysOfTheWeek = ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"];
@@ -30,6 +35,8 @@ function FilmListHeader(){
         case 7:
             dayOfWeek = "NIEDZIELA";
             break;
+        default:
+            dayOfWeek = "Undefined";
             
     }
     return(
@@ -38,9 +45,9 @@ function FilmListHeader(){
                 <h1>REPERTUAR CINEMA CITY LUBLIN - PLAZA</h1>
                 <div className="filmHeaderMenu">
                     {daysOfTheWeek.map((d) => {return(
-                        <button className="dayButton">{ d==daysOfTheWeek[0] ? "Dziś" : d }</button>
+                        <button className={d===daysOfTheWeek[0]?"dayButton selected firstInLine":"dayButton"} onClick={onDayClicked(d)} id={d}>{ d===daysOfTheWeek[0] ? "Dziś" : d }</button>
                     );})}
-                    <input type="date" />
+                    <button className="calenderBtn"><img src={calIcon} alt="Calender Icon"/></button>
                     <select>
                         <option>Wszystkie Kina</option>
                         <hr />
@@ -56,7 +63,7 @@ function FilmListHeader(){
                         <option>Wrooklyn ZOO</option>
                     </select>
                 </div>
-                <p>{dayOfWeek} {today.getDate()}/{today.getMonth()}/{today.getFullYear()}</p>
+                <p>{dayOfWeek} {today.getDate()}/{today.getMonth()+1}/{today.getFullYear()}</p>
             </div>
             <hr />
         </div>
